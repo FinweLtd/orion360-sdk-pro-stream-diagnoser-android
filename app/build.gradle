@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "fi.finwe.orion360.sdk.pro.streamdiagnoser"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 1000100
+        versionName "1.0.00"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    // Product flavors for Android:
+    flavorDimensions "default"
+    productFlavors {
+
+        // Android:
+        android {
+            applicationIdSuffix ".android"
+            minSdkVersion 18
+            buildConfigField "String", "VR_MODE", "\"SELECTABLE\""
+        }
+    }
+
+    // Build types for release and debug builds:
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            jniDebuggable true
+        }
+    }
+
+    // APK renaming with project name, flavor, build type[, version, date]:
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def project = "Orion360_Stream_Diagnoser" // <- TODO change project name here to auto-rename .apk files!
+            def SEP = "_"
+            def flavor = variant.productFlavors[0].name
+            def buildType = variant.variantData.variantConfiguration.buildType.name
+            def version = variant.versionCode
+            def date = new Date()
+            def formattedDate = date.format('ddMMyy')
+            def newApkName
+            if (buildType == 'debug') {
+                newApkName = project + SEP + flavor + SEP + buildType + ".apk"
+            } else {
+                newApkName = project + SEP + flavor + SEP + buildType \
+                    + SEP + version + SEP + formattedDate + ".apk"
+            }
+            outputFileName = newApkName
+        }
+    }
+}
+
+configurations {
+
+    // Android:
+    androidDebugImplementation
+    androidReleaseImplementation
+
+}
+
+dependencies {
+
+    // Libs folder (if any):
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Orion360 SDK (Pro) library.
+    implementation 'fi.finwe.orion360:orion360-sdk-pro:3.1.02.000' // From Finwe maven repo at Bintray
+
+    // Debug version of FinweUtil enables debug logs from Orion360.
+    debugImplementation 'fi.finwe.util:finwe-util:1.0.04-debug' // From Finwe maven repo at Bintray
+
+    // Release version of FinweUtil should be used for all releases (no debug logs).
+    releaseImplementation 'fi.finwe.util:finwe-util:1.0.04' // From Finwe maven repo at Bintray
+
+    // 3rd party:
+
+    // Google:
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation ('com.android.support.test:runner:1.0.1') {
+        exclude module: 'support-annotations' // resolve conflicting version with FinweContent
+    }
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1') {
+        exclude module: 'support-annotations' // resolve conflicting version with FinweContent
+    }
+}

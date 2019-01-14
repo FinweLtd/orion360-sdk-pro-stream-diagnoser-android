@@ -1,0 +1,23 @@
+# This file contains the list of applications
+# for which this Orion360 license is valid
+# Please do not modify this file in any way
+
+packagename=fi.finwe.orion360.sdk.pro.streamdiagnoser.android
+logo=finwe
+platform = android
+version = 3.0
+enableFeatureExplicit = video360 \
+image360 \
+sprite \
+barrel_distortion
+expirationDate =
+
+issueDate = 2019-01-14 17:53:29 +0000
+
+=========================== BEGIN-SIGNATURE-V3.37 ===========================
+rSJzyasxrvxLsYkhEy1xzMi74DWUr8Frfe2q63AIQHfQaCgpd5hngx39rd5p89cGwNFqrMuFlLNG
+MoUENdN4AKnC75xAev39C/DJZM+vqwz6AO3q3prvcxtETNWbBqTxliP1xfjpEPhjcCCLpWiL8yZE
+OABSs1X8aJd+oyCEpatdzYryR9D/2pqe+r2BVETLDbr4TT68RDXTZkmn+EO8bfrnVqyM2Y6wFSVN
+M7TlVUBvklp1rqUaRzy0ulc038bF0eWO4/2BjGGWAm+Kb96tWQEQAKjEA84RIMzuExdWqdI1UKkF
+FSvgjQCHgGr+lM5AZkYRWEz3ng8cio0i7ZgbPg==
+============================= END-SIGNATURE-V3.37 ===========================

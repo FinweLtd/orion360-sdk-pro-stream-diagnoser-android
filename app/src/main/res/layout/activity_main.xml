@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context="fi.finwe.orion360.streamdiagnoser.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/config_items_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/fragment_player"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/config_video_uri_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pure_white"
+                android:layout_margin="@dimen/config_item_title_margin"
+                android:text="@string/config_video_uri_title" />
+
+            <AutoCompleteTextView
+                android:id="@+id/config_video_uri_editor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:textColor="@color/pure_white"
+                android:maxLines="1">
+            </AutoCompleteTextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/config_message_log_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pure_white"
+                    android:layout_margin="@dimen/config_item_title_margin"
+                    android:text="@string/config_message_log_title" />
+
+                <Button
+                    android:id="@+id/config_send_email_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/config_button_email_title"
+                    android:onClick="onSendEmail"/>
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/config_message_log"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal|vertical"
+                    android:hyphenationFrequency="none"
+                    android:layout_margin="16dp"
+                    android:gravity="bottom"
+                    android:textColor="@color/pure_white"
+                    android:text="" />
+
+            </HorizontalScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/fragment_player"
+        android:name="fi.finwe.orion360.streamdiagnoser.fragments.PlayerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

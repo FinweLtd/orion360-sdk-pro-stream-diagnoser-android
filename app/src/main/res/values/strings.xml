@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Orion360 Stream Diagnoser</string>
+
+    <!-- Config -->
+    <string name="config_video_uri_title">Video URI:</string>
+    <string name="config_message_log_title">Message log:</string>
+    <string name="config_button_email_title">Send email</string>
+
+    <!-- Player -->
+    <string name="player_status_label_title">Status: </string>
+    <string name="player_status_label">Not initialized</string>
+    <string name="player_buffer_status_title">Buffer: </string>
+    <string name="player_buffer_status">N/A</string>
+    <string name="player_long_tap_hint_enter_vr_mode">"Long tap to enter VR mode"</string>
+    <string name="player_long_tap_hint_exit_vr_mode">"Long tap to exit VR mode"</string>
+
+    <!-- Video controls -->
+    <string name="player_title_panel_logo_button_desc">Logo</string>
+    <string name="player_title_panel_title_text">Orion360 Mini Player</string>
+    <string name="player_title_panel_close_button_desc">Close</string>
+    <string name="player_controls_play_button_desc">Play/pause</string>
+    <string name="player_controls_audio_button_desc">Toggle mute on/off</string>
+    <string name="player_controls_player_position">-:--</string>
+    <string name="player_controls_duration">-:--</string>
+    <string name="player_controls_remaining">-:--</string>
+    <string name="player_controls_vr_button_desc">Toggle VR on/off</string>
+    <string name="player_hud_progressbar_image_desc">Progress</string>
+
+</resources>
